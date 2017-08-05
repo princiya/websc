@@ -11,3 +11,21 @@ Intermediate
 - Learn about the WebRTC JavaScript APIs
 - Build a selfie sharing web app
 - Build an audio/video chat application
+
+## Selfie sharing
+
+This is a simple app to click selfies and share with friends using web sockets, getUserMedia() and node.js.
+
+- This is a client - server architecture
+- Server runs and captures your selfie
+- Any client(s) connected can have access to this selfie
+- This is made possible using web sockets
+
+### To run the app do the following:
+
+- Clone the repository
+- `npm install`
+- `node websocket` (creates a web socket server on port 3000)
+- `node app` (creates a node express server on port 5000)
+- Open a browser and run `localhost:5000/server/serverCamera.html`
+- Open a browser and run `localhost:5000/client/clientImage.html`

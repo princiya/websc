@@ -1,0 +1,22 @@
+{
+  "name": "peer-to-peer-web",
+  "version": "1.0.0",
+  "description": "web summer camp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "websocket",
+    "javascript",
+    "webrtc",
+    "canvas"
+  ],
+  "author": "Princiya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "ws": "^3.1.0"
+  }
+}

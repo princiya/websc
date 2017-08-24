@@ -35,6 +35,6 @@ This is a simple app to click selfies and share with friends using web sockets, 
 - Clone the repository
 - `npm install`
 - `node websocket` (creates a web socket server on port 3000)
-- `node app` (creates a node express server on port 5000)
+- `node index` (creates a node express server on port 5000)
 - Open a browser and run `localhost:5000/server/serverCamera.html`
 - Open another browser or a new tab on the same browser and run `localhost:5000/client/clientImage.html`

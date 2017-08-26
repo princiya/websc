@@ -22,3 +22,5 @@ The core parts of this step are as follows:
 ## Exercise
 
 - How can you change the code to make it possible to share any file type??
+
+### [Prev](../5)

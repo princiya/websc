@@ -27,3 +27,6 @@ For this, we use a signaling server: a server that can pass messages between Web
 - What alternative messaging mechanisms might be possible? What problems might we encounter using 'pure' WebSocket?
 - What issues might be involved with scaling this application? Can you develop a method for testing thousands or millions of simultaneous room requests?
 - This app uses a JavaScript prompt to get a room name. Work out a way to get the room name from the URL. For example localhost:8080/foo would give the room name foo.
+
+### [Next](../5)
+### [Prev](../3)

@@ -9,4 +9,4 @@ In this tutorial you will learn:
 - Combine peer connection and signaling.
 - Take a photo and share it via a data channel.
 
-### [Start](../1)
+### [Start](./1)

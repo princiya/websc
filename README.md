@@ -1,13 +1,24 @@
-## Combine peer connection and signaling
+## Take a photo and share it via a data channel
 
 In this step you'll find out how to:
 
-- Run a WebRTC signaling service using Socket.IO running on Node.js
-- Use that service to exchange WebRTC metadata between peers
+- Take a photo and get the data from it using the canvas element.
+- Exchange image data with a remote user.
+
+## How it works
+
+Previously you learned how to exchange text messages using RTCDataChannel.
+
+This step makes it possible to share entire files: in this example, photos captured via getUserMedia().
+
+The core parts of this step are as follows:
+
+- Establish a data channel. Note that you don't add any media streams to the peer connection in this step.
+- Capture the user's webcam video stream with getUserMedia()
+- When the user clicks the Snap button, get a snapshot (a video frame) from the video stream and display it in a canvas element
+- When the user clicks the Send button, convert the image to bytes and send them via a data channel
+- The receiving side converts data channel message bytes back to an image and displays the image to the user
 
 ## Exercise
 
-- This application supports only one-to-one video chat. How might you change the design to enable more than one person to share the same video chat room?
-- The example has the room name foo hard coded. What would be the best way to enable other room names?
-- How would users share the room name? Try to build an alternative to sharing room names.
-- How could you change the app?
+- How can you change the code to make it possible to share any file type??

@@ -6,7 +6,7 @@ const path = require('path'); // for handling and transforming file paths
 const fs = require('fs'); // for file I/O using standard POSIX functions
 
 process.on('uncaughtException', (err) => {
-	 console.log(">> Uncaught exception: "+err);
+	 console.log(">> Uncaught exception from node.js process: "+err);
 });
 
 app.use(express.static(path.join(__dirname, 'public'))); // we need to serve static files from the public directory
@@ -61,6 +61,10 @@ io.on('connection', function(socket) {
         }
       });
     }
+  });
+
+	socket.on('bye', function(){
+    console.log('received bye');
   });
 
 });

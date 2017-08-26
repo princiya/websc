@@ -4,6 +4,7 @@ const server = require('http').Server(app); // for serving files over http
 const io = require('socket.io')(server); //socket.io web socket server
 const path = require('path'); // for handling and transforming file paths
 const fs = require('fs'); // for file I/O using standard POSIX functions
+const os = require('os');
 
 process.on('uncaughtException', (err) => {
 	 console.log(">> Uncaught exception from node.js process: "+err);
@@ -30,23 +31,23 @@ io.on('connection', function(socket) {
     socket.broadcast.emit('message', message);
   });
 
-  socket.on('create or join', function(room) {
+	socket.on('create or join', function(room) {
     log('Received request to create or join room ' + room);
 
-		var numClients = io.engine.clientsCount;
+    var numClients = io.engine.clientsCount;
     log('Room ' + room + ' now has ' + numClients + ' client(s)');
 
     if (numClients === 1) {
       socket.join(room);
       log('Client ID ' + socket.id + ' created room ' + room);
       socket.emit('created', room, socket.id);
-
     } else if (numClients === 2) {
       log('Client ID ' + socket.id + ' joined room ' + room);
-      io.in(room).emit('join', room);
+      // io.sockets.in(room).emit('join', room);
       socket.join(room);
       socket.emit('joined', room, socket.id);
-      io.in(room).emit('ready');
+      io.sockets.in(room).emit('ready', room);
+      socket.broadcast.emit('ready', room);
     } else { // max two clients
       socket.emit('full', room);
     }

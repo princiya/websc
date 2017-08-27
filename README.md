@@ -18,3 +18,19 @@ Intermediate
 ## Blog
 
 [Here](https://princiya777.wordpress.com/category/websc/) is a blog post series for this workshop. While it is possible to do real time communication on the browser with only few lines of JavaScript code, WebRTC is quite complicated with different set of browser APIs and network protocols. Please make some time to do a background reading on this topic via my blog in order to get a good hands-on coding experience during the workshop.
+
+## Get started!
+
+- Clone this repo
+- Run `npm install`
+- Go to `/public/tutorial` and follow the tutorial steps
+- Go to `/public/apps` to try out different WebRTC apps
+- To run a tutorial step or an app please follow the below instructions:
+  - Open a terminal window and run `node index.js`
+  - Open a browser window/tab and run `localhost:5000/tutorial/1` (for tutorial)
+  - Open a browser window/tab and run `localhost:5000/apps/1` (for apps)
+  - To see WebRTC features, open browser console and see the logged results
+  - To see data sharing via WebRTC, open another browser window/tab with the same above url
+
+Good luck :)
+_To report any problem, please file an issue in this repo. Thank you!_

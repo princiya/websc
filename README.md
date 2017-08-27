@@ -16,11 +16,13 @@ Intermediate
 - Build an audio/video chat application
 
 ## Blog
-
 [Here](https://princiya777.wordpress.com/category/websc/) is a blog post series for this workshop. While it is possible to do real time communication on the browser with only few lines of JavaScript code, WebRTC is quite complicated with different set of browser APIs and network protocols. Please make some time to do a background reading on this topic via my blog in order to get a good hands-on coding experience during the workshop.
 
-## Get started!
+## Resources
+- [WebRTC Tutorial](https://github.com/googlecodelabs/webrtc-web)
+- [WebRTC Samples](https://github.com/webrtc/samples)
 
+## Get started!
 - Clone this repo
 - Run `npm install`
 - Go to `/public/tutorial` and follow the tutorial steps
@@ -32,5 +34,6 @@ Intermediate
   - To see WebRTC features, open browser console and see the logged results
   - To see data sharing via WebRTC, open another browser window/tab with the same above url
 
-Good luck :)
 _To report any problem, please file an issue in this repo. Thank you!_
+
+_Disclaimer: I don't intend to violate any copyright/license laws. This work is a compilation of my notes along with the help from various sources on the internet for the Web Summer Camp, Croatia 2017._

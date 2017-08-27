@@ -18,23 +18,3 @@ Intermediate
 ## Blog
 
 [Here](https://princiya777.wordpress.com/category/websc/) is a blog post series for this workshop. While it is possible to do real time communication on the browser with only few lines of JavaScript code, WebRTC is quite complicated with different set of browser APIs and network protocols. Please make some time to do a background reading on this topic via my blog in order to get a good hands-on coding experience during the workshop.
-
-## Activity #1 - Selfie sharing
-
-Please follow the below instructions and make sure you have the working environment set. For any errors, please file issues here. Thank you!
-
-This is a simple app to click selfies and share with friends using web sockets, getUserMedia() and node.js.
-
-- This is a peer-to-peer architecture
-- Peer A runs and captures your selfie
-- Any subsequent peer(s) connected can have access to this selfie
-- This is made possible using the WebRTC architecture and setup
-
-### To run the app do the following:
-
-- Clone the repository
-- `npm install`
-- `node websocket` (creates a web socket server on port 3000)
-- `node index` (creates a node express server on port 5000)
-- Open a browser and run `localhost:5000/server/serverCamera.html`
-- Open another browser or a new tab on the same browser and run `localhost:5000/client/clientImage.html`

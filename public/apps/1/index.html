@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Selfie with WebRTC</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
 
-<head>
+  <body>
+    <h1>Selfie with WebRTC</h1>
 
-  <title>Selfie with WebRTC</title>
+    <div id="videoCanvas">
+      <video id="camera" autoplay></video>
+      <canvas id="canvas" style="display:none"></canvas>
+    </div>
 
-  <link rel="stylesheet" href="/css/main.css" />
+    <div id="buttons">
+      <button id="start" style="display:none">Start</button>
+      <button id="capture">Capture</button>
+      <div id="filters" style="display:none">
+        <input type="checkbox" id="saturateCheck" /><label>Saturate</label><input type="text" id="saturateText" placeholder="0-100%"/>
+        <input type="checkbox" id="grayScaleCheck" /><label>Grayscale</label><input type="text" id="grayScaleText" placeholder="0-100%"/>
+        <button id="applyFilters">Apply Filters</button>
+      </div>
+      <button id="send" style="display:none">Send</button>
+    </div>
 
-</head>
+    <div id="incoming">
+      <h2>Incoming photos</h2>
+      <div id="trail"></div>
+    </div>
 
-<body>
-
-  <h1>Selfie with WebRTC</h1>
-
-  <div id="videoCanvas">
-    <video id="camera" autoplay></video>
-    <canvas id="photo"></canvas>
-  </div>
-
-  <div id="buttons">
-    <button id="snap">Snap</button><span> then </span><button id="send">Send</button>
-    <span> or </span>
-    <button id="snapAndSend">Snap &amp; Send</button>
-  </div>
-
-  <div id="incoming">
-    <h2>Incoming photos</h2>
-    <div id="trail"></div>
-  </div>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="../../lib/adapter.js"></script>
-  <script src="js/main.js"></script>
-
-</body>
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../../lib/adapter.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/signalingServer.js"></script>
+    <script src="js/peerConnection.js"></script>
+  </body>
 </html>

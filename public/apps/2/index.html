@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Polling</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <h1>Have you coded/worked with WebRTC?</h1>
+
+    <form id="answer">
+      <input type="radio" id="yes"/>Yes
+      <input type="radio" id="no"/>No
+      <input type="button" id="send" value="Send"/>
+    </form>
+
+    <div id="incoming">
+      <h2>Results</h2>
+      <div id="trail"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../../lib/adapter.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/signalingServer.js"></script>
+    <script src="js/peerConnection.js"></script>
+  </body>
+</html>

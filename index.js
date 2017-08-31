@@ -6,7 +6,7 @@ const path = require('path'); // for handling and transforming file paths
 const fs = require('fs'); // for file I/O using standard POSIX functions
 const os = require('os'); //node.js module which provides operating system related utilities
 
-process.on('uncaughtException', (err) => {
+process.on('uncaughtException', function(err){
 	 console.log(">> Uncaught exception from node.js process: "+err);
 });
 

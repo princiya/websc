@@ -1,7 +1,7 @@
 const express = require('express'); // express is a Node.js web application framework
 const app = express(); // instance of the express server
-// const server = require('http').Server(app); // for serving files over http
-// const io = require('socket.io')(server); //socket.io web socket server
+const server = require('http').Server(app); // for serving files over http
+const io = require('socket.io')(server); //socket.io web socket server
 const path = require('path'); // for handling and transforming file paths
 const fs = require('fs'); // for file I/O using standard POSIX functions
 const os = require('os'); //node.js module which provides operating system related utilities
@@ -13,18 +13,7 @@ process.on('uncaughtException', (err) => {
 app.use(express.static(path.join(__dirname, 'public'))); // we need to serve static files from the public directory
 
 const port = 5000;
-// server.listen(port);
-
-var options = {
-  key: fs.readFileSync('../../.ssh/server.key'),
-  cert: fs.readFileSync('../../.ssh/server.crt'),
-  requestCert: false,
-  rejectUnauthorized: false
-};
-var https = require('https').Server(options, app);
-var io = require('socket.io')(https);
-
-https.listen(port);
+server.listen(port);
 
 // var io = socketIO.listen(app);
 io.on('connection', function(socket) {

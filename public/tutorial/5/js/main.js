@@ -9,14 +9,10 @@ var remoteStream;
 var turnReady;
 
 var pcConfig = {
-  iceServers: [{
+  'iceServers': [{
     'urls': 'stun:stun.l.google.com:19302'
-    /* urls: 'turn:' + window.location.hostname, // TURN server
-    username: 'webrtc',
-    credential: 'turnserver' */
   }]
 };
-//var pcConfig = null;
 
 // Set up audio and video regardless of what devices are present.
 var sdpConstraints = {
@@ -44,11 +40,6 @@ socket.on('created', function(room) {
 
 socket.on('full', function(room) {
   console.log('Room ' + room + ' is full');
-});
-
-socket.on('ready', function() {
-  console.log('Socket is ready');
-  createPeerConnection(isInitiator);
 });
 
 socket.on('join', function (room){
@@ -155,14 +146,11 @@ window.onbeforeunload = function() {
 
 function createPeerConnection() {
   try {
-    pc = new RTCPeerConnection(pcConfig);
+    pc = new RTCPeerConnection(null);
     pc.onicecandidate = handleIceCandidate;
     pc.onaddstream = handleRemoteStreamAdded;
     pc.onremovestream = handleRemoteStreamRemoved;
     console.log('Created RTCPeerConnnection');
-    if (isInitiator) {
-      pc.createOffer(setLocalAndSendMessage, handleCreateOfferError);
-    }
   } catch (e) {
     console.log('Failed to create PeerConnection, exception: ' + e.message);
     alert('Cannot create RTCPeerConnection object.');
@@ -207,13 +195,12 @@ function doAnswer() {
   );
 }
 
-function setLocalAndSendMessage(desc) {
+function setLocalAndSendMessage(sessionDescription) {
   // Set Opus as the preferred codec in SDP if Opus is present.
   //  sessionDescription.sdp = preferOpus(sessionDescription.sdp);
-  pc.setLocalDescription(desc, function() {
-    console.log('sending local desc:', pc.localDescription);
-    sendMessage(pc.localDescription);
-  }, onCreateSessionDescriptionError);
+  pc.setLocalDescription(sessionDescription);
+  console.log('setLocalAndSendMessage sending message', sessionDescription);
+  sendMessage(sessionDescription);
 }
 
 function onCreateSessionDescriptionError(error) {
@@ -223,7 +210,7 @@ function onCreateSessionDescriptionError(error) {
 function requestTurn(turnURL) {
   var turnExists = false;
   for (var i in pcConfig.iceServers) {
-    if (pcConfig.iceServers[i].urls.substr(0, 5) === 'turn:') {
+    if (pcConfig.iceServers[i].url.substr(0, 5) === 'turn:') {
       turnExists = true;
       turnReady = true;
       break;
@@ -247,6 +234,12 @@ function requestTurn(turnURL) {
     xhr.open('GET', turnURL, true);
     xhr.send();
   }
+}
+
+function handleRemoteStreamAdded(event) {
+  console.log('Remote stream added.');
+  remoteVideo.src = window.URL.createObjectURL(event.stream);
+  remoteStream = event.stream;
 }
 
 function handleRemoteStreamRemoved(event) {
